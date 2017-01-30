@@ -8,6 +8,7 @@ module.exports = {
 
             res.json(db.users[ime]);
         },
+        method: "POST",
     },
 
     getUsers: {
@@ -16,6 +17,7 @@ module.exports = {
 
             res.json("Hello world!");
         },
+        method: "GET",
     },
 
     getUser: {
@@ -24,6 +26,7 @@ module.exports = {
 
             res.json(db.users[req.params.id]);
         },
+        method: "GET",
     },
     
     modifyUser: {
@@ -36,6 +39,7 @@ module.exports = {
 
             res.json(db.users[req.params.id]);
         },
+        method: "PUT",
     },
    
     deleteUser: {
@@ -54,6 +58,7 @@ module.exports = {
 
             res.json(izbrisan);
         },
+        method: "DELETE"
     },
 };
 
