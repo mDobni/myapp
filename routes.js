@@ -1,5 +1,5 @@
 module.exports = {
-    post: {
+    createUser: {
         route: '/:id',
         callback: function(req, res) {
             var ime = req.body.name;
@@ -10,7 +10,7 @@ module.exports = {
         },
     },
 
-    get: {
+    getUsers: {
         route: '/',
         callback: function(req, res) {
 
@@ -18,7 +18,7 @@ module.exports = {
         },
     },
 
-    getId: {
+    getUser: {
         route: '/:id',
         callback: function(req, res){
 
@@ -26,7 +26,7 @@ module.exports = {
         },
     },
     
-    put: {
+    modifyUser: {
         route: '/:id',
         callback: function(req, res) {
             Object.keys(req.body)
@@ -38,7 +38,7 @@ module.exports = {
         },
     },
    
-    delete: {
+    deleteUser: {
         route: '/:id',
         callback: function(req, res) {
             var izbrisan = {};
