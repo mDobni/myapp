@@ -1,6 +1,6 @@
 module.exports = [
     { 
-        route: '/article/',
+        route: '/',
         callback: function(req, res) {
 
             res.json(artDb.articles);

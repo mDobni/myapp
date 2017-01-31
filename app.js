@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var routes = require('./routes');
+var routes = require('./article');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 routes.forEach(function (x) {
-    app[x["method"].toLowerCase()](x.route, x.callback);
+    app[x["method"]](x.route, x.callback);
 })
 
 
