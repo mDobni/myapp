@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var routes = require('./article');
+var routes = require('./bridge');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
