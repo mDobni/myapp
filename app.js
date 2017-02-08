@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var routes = require('./routes');
+var db = require('./db')
+
+var port = 3000;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,4 +17,4 @@ routes.forEach(function (x) {
 })
 
 
-app.listen(3000);
+app.listen(port);
