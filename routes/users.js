@@ -3,6 +3,7 @@ var knex = require('../db.js');
 module.exports = [
      {
         route: '/users',
+        method: "post",
         callback: function(req, res) {
             knex('users').insert(req.body)
             .then(function (result) {
@@ -10,44 +11,44 @@ module.exports = [
             }).catch(function (err) {
                 res.json(err);
             });
-        },
-        method: "post",
+        },      
     },
 
      {
         route: '/users',
+        method: "get",
         callback: function(req, res) {
             knex('users').select().then(function (result) {
                 res.json(result);
             });
         },
-        method: "get",
     },
 
      {
         route: '/users/:id',
-        callback: function(req, res) {
-            knex('users').where(req.body).select('id');
-            res.json();
-        },
         method: "get",
+        callback: function(req, res) {
+            knex('users').where(req.body).select('id').then(function (result) {
+                  res.json(result);
+            });
+        },
     },
     
      {
         route: '/users/:id',
+        method: "put",
         callback: function(req, res) {
             Object.keys(req.body)
             .forEach(function (value, index, array) {
                 db.users[req.params.id][value] = req.body[value];
             });
-
             res.json(db.users[req.params.id]);
         },
-        method: "put",
     },
    
      {
         route: '/users/:id',
+        method: "delete",
         callback: function(req, res) {
             var izbrisan = {};
             if (!db.users[req.params.id]) {
@@ -62,7 +63,6 @@ module.exports = [
 
             res.json(izbrisan);
         },
-        method: "delete"
     },
 ];
 
