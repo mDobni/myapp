@@ -1,8 +1,5 @@
 var config = require('./knexfile.js');
-var env = 'development';
-var knex = require('knex')({
-    client: 'sqlite3',
-    connection: {
-        filename: "./mydb.sqlite"
-    }
-});
+var env = process.env.NODE_ENV;
+var knex = require('knex')(config[env]);
+
+module.exports = knex

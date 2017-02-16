@@ -1,9 +1,9 @@
 module.exports = {
     
     development: {
-        client: 'postgresql',
+        client: 'sqlite3',
         connection: {
-            database: 'blog_dev'
+            filename: "./mydb.sqlite"
         }
     }
 }
