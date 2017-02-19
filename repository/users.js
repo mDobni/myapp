@@ -1,4 +1,4 @@
-var db = require('../db.js')
+var knex = require('../db.js')
 
 module.exports = function () {
     return {
@@ -7,6 +7,6 @@ module.exports = function () {
                 ? knex('users')
                 : knex('users').where({ id: id });
         },
-        
+
     }
 }
