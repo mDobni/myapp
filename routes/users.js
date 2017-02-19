@@ -1,4 +1,5 @@
 var knex = require('../db.js');
+var userService = require('../service/users')();
 
 module.exports = [
      {
@@ -18,7 +19,8 @@ module.exports = [
         route: '/users',
         method: "get",
         callback: function(req, res) {
-            knex('users').select().then(function (result) {
+            debugger
+            return userService.get().then(function (result) {
                 res.json(result);
             });
         },
