@@ -45,25 +45,17 @@ module.exports = [
             .then(function (result) {
                 res.json(result);
             });
-        }
+        },
     },
 
     {
         route: '/users/:id',
         method: "delete",
         callback: function (req, res) {
-            var izbrisan = {};
-            if (!db.users[req.params.id]) {
-                res.json('nema');
-            };
-
-            Object.keys(db.users[req.params.id])
-                .forEach(function (value, index, array) {
-                    izbrisan[value] = db.users[req.params.id][value];
-                });
-            delete db.users[req.params.id]
-
-            res.json(izbrisan);
+            return userService.delete(req.params.id, req.body)
+            .then(function (result) {
+                res.json(result);
+            });                       
         },
     },
 ];

@@ -22,5 +22,14 @@ module.exports = function () {
                 }
             })
         },
-    }
-}
+        delete: function (id, body) {
+            return userRepo.get(id)
+            .then(function (result) {
+                if (result.length > 0)
+                    return userRepo.delete(id, body);
+                    //tukaj pride se response?? 
+            })
+                
+        }
+    };
+};
