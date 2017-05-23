@@ -2,34 +2,32 @@ var userRepo = require('../repository/users')();
 
 module.exports = function () {
     return {
-        get: function (id) {
-            return userRepo.get(id);
+      get: function (id) {
+        return userRepo.get(id);
         },
-        create: function (body) {
-            return userRepo.create(body);
+      create: function (body) {
+        return userRepo.create(body);
         },
-        update: function (id, body) {
-            return userRepo.get(id)
+      update: function (id, body) {
+        return userRepo.get(id)
             .then(function (result) {
-                if (result.length > 0) 
-                    return userRepo.update(id, body);
+              if (result.length > 0) 
+                return userRepo.update(id, body);
             })
             .then(function (result) {
-                if (result === 1) {
-                    return userRepo.get(id)
-                } else if (result === undefined) {
-                    return new Error('no user with this id')
-                }
-            })
+              if (result === 1) {
+                return userRepo.get(id)
+              } else if (result === undefined) {
+                  return new Error('no user with this id')
+              }
+            });
         },
-        delete: function (id, body) {
-            return userRepo.get(id)
+      delete: function (id, body) {
+        return userRepo.get(id)
             .then(function (result) {
-                if (result.length > 0)
-                    return userRepo.delete(id, body);
-                    //tukaj pride se response?? 
-            })
-                
-        }
+              if (result.length > 0)
+                return userRepo.delete(id, body);
+            });
+      },
     };
 };
